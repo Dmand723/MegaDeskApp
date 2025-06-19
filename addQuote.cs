@@ -14,8 +14,23 @@ namespace MegaDeskApp
 {
     public partial class addQuote : Form
     {
+
         DateTime todaysDate = DateTime.Today;
         int ErrorAmmount = 0;
+        string[] DeskMaterials =
+        {
+            "Pine",
+            "Laminate",
+            "Veneer",
+            "Oak",
+            "Rosewood"
+        };
+        int[] shipingAmounts =
+        {
+            3,5,7,14
+
+        };
+        
         public addQuote()
         {
             InitializeComponent();
@@ -107,6 +122,7 @@ namespace MegaDeskApp
 
         private void depthNumberBox_ValueChanged(object sender, EventArgs e)
         {
+            
             if (!string.IsNullOrEmpty(depthErrProvider.GetError(depthNumberBox)))
             {
                 depthErrProvider.Clear();
@@ -123,6 +139,7 @@ namespace MegaDeskApp
 
         private void drawerAmountDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cl.Text = drawerAmountDropDown.Text;
             if (!string.IsNullOrEmpty(drawerErrProvider.GetError(drawerAmountDropDown)))
             {
                 drawerErrProvider.Clear();
@@ -133,26 +150,51 @@ namespace MegaDeskApp
             {
                 if(drawerAmmount <1 || drawerAmmount > 7)
                 {
-                    Console.WriteLine(drawerAmmount);
                     drawerErrProvider.SetError(drawerAmountDropDown, "Please Select a Number Between 1 and 7 1");
                     ErrorAmmount++;
                 }
             }
-            else
+            if(string.IsNullOrEmpty(drawerAmountDropDown.Text))
             {
-                drawerErrProvider.SetError(drawerAmountDropDown, "Please Select a Number Between 1 and 7 3");
+                drawerErrProvider.SetError(drawerAmountDropDown, "Please Select a Number Between 1 and 7 1");
                 ErrorAmmount++;
             }
         }
 
         private void materialDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (!string.IsNullOrEmpty(materialErrProvider.GetError(materialDropDown)))
+            {
+                materialErrProvider.Clear();
+                ErrorAmmount--;
+            }
+            if (!DeskMaterials.Contains(materialDropDown.Text))
+            {
+                materialErrProvider.SetError(materialDropDown, "Please Select from Dropdown");
+                ErrorAmmount++;
+            }
         }
 
         private void shipingDropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (!string.IsNullOrEmpty(shippingErrProvider.GetError(shipingDropdown)))
+            {
+                shippingErrProvider.Clear();
+                ErrorAmmount--;
+            }
+            if(int.TryParse(shipingDropdown.Text, out int shipingAmmount))
+            {
+                if (!shipingAmounts.Contains(shipingAmmount))
+                {
+                    shippingErrProvider.SetError(shipingDropdown, "Please Select from Dropdown");
+                    ErrorAmmount++;
+                }
+            }
+            else
+            {
+                shippingErrProvider.SetError(shipingDropdown, "Please Select from Dropdown");
+                ErrorAmmount++;
+            }
         }
 
         

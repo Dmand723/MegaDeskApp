@@ -13,13 +13,13 @@ namespace MegaDeskApp
         public decimal Drawers = 0;
         public string Material = "";
         public int DeliveryTime = 0;
-        public Desk(decimal Width, decimal Depth, string Material,int deliveryTime,int drawers)
+        public Desk(decimal Width, decimal Depth, string Material, int deliveryTime, int drawers)
         {
             this.Width = Width;
             this.Depth = Depth;
             this.Material = Material;
             this.DeliveryTime = deliveryTime;
-            this.Drawers = drawers; 
+            this.Drawers = drawers;
         }
     }
 }

@@ -56,6 +56,7 @@
             widthNumberBox = new NumericUpDown();
             depthNumberBox = new NumericUpDown();
             submitErrProvider = new ErrorProvider(components);
+            cl = new Label();
             ((System.ComponentModel.ISupportInitialize)nameErrProvider).BeginInit();
             ((System.ComponentModel.ISupportInitialize)widthErrProvider).BeginInit();
             ((System.ComponentModel.ISupportInitialize)depthErrProvider).BeginInit();
@@ -154,6 +155,7 @@
             nameTxtBox.Size = new Size(194, 27);
             nameTxtBox.TabIndex = 9;
             nameTxtBox.TextChanged += nameTxtBox_TextChanged;
+            nameTxtBox.Leave += nameTxtBox_TextChanged;
             // 
             // drawerAmountDropDown
             // 
@@ -162,7 +164,9 @@
             drawerAmountDropDown.Name = "drawerAmountDropDown";
             drawerAmountDropDown.Size = new Size(194, 28);
             drawerAmountDropDown.TabIndex = 12;
+            drawerAmountDropDown.Text = "1";
             drawerAmountDropDown.SelectedIndexChanged += drawerAmountDropDown_SelectedIndexChanged;
+            drawerAmountDropDown.TextUpdate += drawerAmountDropDown_SelectedIndexChanged;
             // 
             // materialDropDown
             // 
@@ -172,7 +176,9 @@
             materialDropDown.Name = "materialDropDown";
             materialDropDown.Size = new Size(194, 28);
             materialDropDown.TabIndex = 13;
+            materialDropDown.Text = "Pine";
             materialDropDown.SelectedIndexChanged += materialDropDown_SelectedIndexChanged;
+            materialDropDown.TextUpdate += materialDropDown_SelectedIndexChanged;
             // 
             // shipingDropdown
             // 
@@ -182,7 +188,9 @@
             shipingDropdown.Name = "shipingDropdown";
             shipingDropdown.Size = new Size(194, 28);
             shipingDropdown.TabIndex = 14;
+            shipingDropdown.Text = "3";
             shipingDropdown.SelectedIndexChanged += shipingDropdown_SelectedIndexChanged;
+            shipingDropdown.TextUpdate += shipingDropdown_SelectedIndexChanged;
             // 
             // mainMenuBtn
             // 
@@ -298,11 +306,21 @@
             submitErrProvider.ContainerControl = this;
             submitErrProvider.RightToLeft = true;
             // 
+            // cl
+            // 
+            cl.AutoSize = true;
+            cl.Font = new Font("Segoe UI", 14F);
+            cl.Location = new Point(326, 24);
+            cl.Name = "cl";
+            cl.Size = new Size(0, 32);
+            cl.TabIndex = 23;
+            // 
             // addQuote
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(527, 615);
+            Controls.Add(cl);
             Controls.Add(depthNumberBox);
             Controls.Add(widthNumberBox);
             Controls.Add(label9);
@@ -368,5 +386,6 @@
         private NumericUpDown widthNumberBox;
         private NumericUpDown depthNumberBox;
         private ErrorProvider submitErrProvider;
+        private Label cl;
     }
 }

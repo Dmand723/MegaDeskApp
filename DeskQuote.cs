@@ -12,10 +12,10 @@ namespace MegaDeskApp
         public string orderDate;
         public Desk? desk;
         public double price = 0.00;
-        public DeskQuote(string customerName,string orderDate,Desk desk)
+        public DeskQuote(string customerName, string orderDate, Desk desk)
         {
             this.customerName = customerName;
-            this.orderDate = orderDate; 
+            this.orderDate = orderDate;
             this.desk = desk;
         }
 
