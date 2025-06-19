@@ -12,6 +12,7 @@ namespace MegaDeskApp
 {
     public partial class ViewQuotes : Form
     {
+      
         public ViewQuotes()
         {
             InitializeComponent();

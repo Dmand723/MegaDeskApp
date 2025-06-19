@@ -44,6 +44,7 @@
             addBtn.TabIndex = 0;
             addBtn.Text = "Add New Quote";
             addBtn.UseVisualStyleBackColor = true;
+            addBtn.Click += addBtn_Click;
             // 
             // veiwBtn
             // 
